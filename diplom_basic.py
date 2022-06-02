@@ -52,7 +52,7 @@ class YandexUser:
             file_name = f'{photos["likes"]}.jpg'
             photos_list = {'file_name': file_name, 'size': photos['size']}
             file_json.append(photos_list)
-            params = {'path': f'{folder_name} | {file_name}', 'url': photos['url']}
+            params = {'path': f'{folder_name}/{file_name}', 'url': photos['url']}
             response_upload = requests.post(YAD_URL + '/upload', headers=self.headers, params=params)
             response_upload.raise_for_status()
             pprint(response_upload.status_code)
